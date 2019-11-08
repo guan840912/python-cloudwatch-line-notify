@@ -11,7 +11,7 @@ SIT={'ec2_id':'<instance-id>',
 UAT={'ec2_id':'instance-id',
     'ec2_name':'ec2-tag-name'}
 
-treemall=[SIT,UAT]
+ec2-instances=[SIT,UAT]
 
 client = boto3.client('cloudwatch', region_name='<region>', aws_access_key_id='<key-id>', aws_secret_access_key='<access-key>')
 token = '<line-notify-auth-token>'
@@ -25,7 +25,7 @@ def lineNotifyMessage(token, msg):
     return r.status_code
 
 while True:
-    for ec2 in  treemall:
+    for ec2 in  ec2-instances:
         now = datetime.datetime.utcnow()
         timediff = datetime.timedelta(minutes=1)
 
